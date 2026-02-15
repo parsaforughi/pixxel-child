@@ -81,7 +81,7 @@ function calculateAdultAge(metrics: FaceMetrics): SkinMetrics {
     Math.abs(browRatio * 100);
 
   const signatureOffset = Math.sin(faceSignature) * 0.5 + 0.5;
-  const baseFromSignature = 20 + signatureOffset * 35;
+  const baseFromSignature = 20 + signatureOffset * 7; // 20–27 range
   const youthScore =
     eyeOpennessRatio * 10 + lipRatio * 5 - foreheadRatio * 3;
   const adjustment = Math.max(
@@ -89,8 +89,8 @@ function calculateAdultAge(metrics: FaceMetrics): SkinMetrics {
     Math.min(5, (youthScore - 1.5) * 3)
   );
   const rawAge = baseFromSignature + adjustment;
-  const finalAge = Math.min(55, Math.max(20, Math.round(rawAge)));
-  const agePercent = (finalAge - 20) / 35;
+  const finalAge = Math.min(27, Math.max(20, Math.round(rawAge)));
+  const agePercent = (finalAge - 20) / 7; // 0 to 1 over 20–27
 
   return {
     wrinkles: Math.min(
