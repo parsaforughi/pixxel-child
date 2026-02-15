@@ -118,10 +118,10 @@ function calculateAdultAge(metrics: FaceMetrics): SkinMetrics {
 }
 
 /**
- * Child-appropriate sub-metrics from age 3–14 (low aging signs).
+ * Child-appropriate sub-metrics from age 3–9 (low aging signs).
  */
 function metricsForChildAge(age: number): Omit<SkinMetrics, 'estimatedAge'> {
-  const agePercentChild = (age - 3) / 11; // 0 to 1 over 3–14
+  const agePercentChild = (age - 3) / 6; // 0 to 1 over 3–9
   return {
     wrinkles: Math.min(20, Math.max(5, Math.round(5 + agePercentChild * 12))),
     eyeAging: Math.min(15, Math.max(3, Math.round(3 + agePercentChild * 10))),

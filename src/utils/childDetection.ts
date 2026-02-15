@@ -33,7 +33,7 @@ export const CHILD_GATE = {
 
 export const CHILD_AGE = {
   MIN: 3,
-  MAX: 14,
+  MAX: 9,
   BASE: 4,
   HEIGHT_FACTOR: 6,
 } as const;
@@ -141,7 +141,7 @@ export function isChild(childScore: number): boolean {
 }
 
 /**
- * Child age from geometry only. Clamped to [3, 14].
+ * Child age from geometry only. Clamped to [3, 9].
  */
 export function calculateChildAge(face_height_ratio: number): number {
   const age =
